@@ -51,11 +51,23 @@ export default class Game extends React.Component {
         }
     }
 
+    newGameClick(e) {
+        // e.preventDefault();
+        console.log('New game started!');
+        this.setState({
+            number: (Math.floor(Math.random() * 100) + 1),
+            guess: "",
+            guessList: [],
+            count: 0,
+            feedback: ""
+        });
+    };
+
     render() {
 
         return (
             <div>
-                <Header />
+                <Header newGameClick={e => this.newGameClick(e)}/>
                 <GuessSection feedback={this.state.feedback}  handleClick={e => this.handleClick(e)} />
                 <GuessCount count={this.state.count} />
                 <GuessList guesses={this.state.guessList} />
