@@ -20,24 +20,35 @@ export default class Game extends React.Component {
     }
 
     handleClick(value) {
-        // event.preventDefault();
         console.log(value, 'Button Clicked!');
+        value = parseInt(value);
         this.setState({
-            guess: value
-        });
-        this.setState({
-            guessList: this.state.guessList.concat(value)
-        })
-        this.setState({
+            guess: value,
+            guessList: this.state.guessList.concat(value),
             count: this.state.count + 1
-        })
+        });
 
-        const guessVal = this.state.guess === this.state.number ? "You won!" : "Try again";
+        console.log(value);
+        console.log(this.state.number);
 
-        this.setState({
-            feedback: guessVal
-        })
-
+        if (value === this.state.number) {
+            this.setState({
+                feedback: "You did it!"
+            })
+            console.log('feedback', this.state.feedback);
+        } else if (value - 5 <= this.state.number && this.state.number <= value + 5) {
+            this.setState({
+                feedback: "Hot!"
+            })
+        } else if (value - 10 <= this.state.number && this.state.number <= value + 10) {
+            this.setState({
+                feedback: "Warm!"
+            })
+        } else {
+            this.setState({
+                feedback: "Cold!"
+            })
+        }
     }
 
     render() {
