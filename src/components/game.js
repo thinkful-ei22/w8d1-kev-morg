@@ -11,15 +11,33 @@ export default class Game extends React.Component {
         super(props);
 
         this.state = {
+            number: (Math.floor(Math.random() * 100) + 1),
             guess: "",
-            // guessList: [],
+            guessList: [],
+            count: 0,
+            feedback: ""
         }
     }
 
     handleClick(value) {
-        event.preventDefault();
+        // event.preventDefault();
         console.log(value, 'Button Clicked!');
-        // this.setState({});
+        this.setState({
+            guess: value
+        });
+        this.setState({
+            guessList: this.state.guessList.concat(value)
+        })
+        this.setState({
+            count: this.state.count + 1
+        })
+
+        const guessVal = this.state.guess === this.state.number ? "You won!" : "Try again";
+
+        this.setState({
+            feedback: guessVal
+        })
+
     }
 
     render() {
@@ -27,9 +45,9 @@ export default class Game extends React.Component {
         return (
             <div>
                 <Header />
-                <GuessSection feedback="Make your guess!"  handleClick={e => this.handleClick(e)}/>
-                <GuessCount count={3} />
-                <GuessList guesses={[10, 15, 25]} />
+                <GuessSection feedback={this.state.feedback}  handleClick={e => this.handleClick(e)} />
+                <GuessCount count={this.state.count} />
+                <GuessList guesses={this.state.guessList} />
             </div>
         );
 
