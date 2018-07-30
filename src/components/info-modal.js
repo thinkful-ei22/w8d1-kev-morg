@@ -4,8 +4,8 @@ import './info-modal.css';
 
 export default function InfoModal(props) {
 
-    if (!props.hidden) {
-        return (
+  if (!props.hidden) {
+    return (
             <div className="overlay" id="modal">
                 <div className="content">
                     <h3>What do I do?</h3>
@@ -22,7 +22,7 @@ export default function InfoModal(props) {
                 </div>
             </div>
         );
-    } else {
-        return <div></div>
-    }
+  } else {
+    return <div></div>;
+  }
 }
