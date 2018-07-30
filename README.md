@@ -1,3 +1,10 @@
+Gist Drills (Interest Calculator):
+
+https://glitch.com/edit/#!/typical-interest?path=src/components/interest-calculator.js:31:86
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
