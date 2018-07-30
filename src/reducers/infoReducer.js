@@ -6,10 +6,10 @@ const initialState = {
 
 export const infoReducer = (state=initialState, action) => {
  
-  console.log(state);
+  // console.log(state);
  
   if(action.type === INFO_GAME){
-    return Object.assign({}, state, {hidden: false});
+    return Object.assign({}, state, {hidden: action.hidden});
   }
   return state;
 };

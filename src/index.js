@@ -1,6 +1,7 @@
 import './reset.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
 
 import './reset.css';
 import './index.css';
@@ -10,24 +11,26 @@ import Game from './components/game';
 // ========================
 
 import store from './store';
-import {inputNumber, newGame, infoGame} from './actions';
+// import {inputNumber, newGame, infoGame} from './actions';
 
-store.dispatch(inputNumber(14));
-store.dispatch(inputNumber(16));
-store.dispatch(inputNumber(58));
+// store.dispatch(inputNumber(14));
+// store.dispatch(inputNumber(16));
+// store.dispatch(inputNumber(58));
 
 //outputs both parts of states of both reducers
-console.log(store.getState()); 
+// console.log(store.getState()); 
 
-store.dispatch(newGame());
+// store.dispatch(newGame());
 
-console.log(store.getState());
+// console.log(store.getState());
 
-store.dispatch(infoGame(false));
+// store.dispatch(infoGame(false));
 
-console.log(store.getState());
+// console.log(store.getState());
 
 ReactDOM.render(
-    <Game />,
+    <Provider store={store}>
+    <Game />
+    </Provider>,
     document.getElementById('root')
 );

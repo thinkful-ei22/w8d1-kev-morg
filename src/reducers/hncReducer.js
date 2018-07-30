@@ -8,8 +8,10 @@ const initialState =  {
 };
 
 export const hncReducer = (state=initialState, action) => {
+  action.guess = parseInt(action.guess, 10);
   if(action.type === GUESS_NUMBER){
     let feedbackGuess;
+    // console.log(action.guess, state.number);
     if(action.guess === state.number){
       feedbackGuess = 'You did it!';
     }
@@ -37,7 +39,7 @@ export const hncReducer = (state=initialState, action) => {
       guess: '',
       guessList: [],
       count: 0,
-      feedback: ''
+      feedback: 'Guess the number I\'m thinking of.'
     });
   }
   return state;
